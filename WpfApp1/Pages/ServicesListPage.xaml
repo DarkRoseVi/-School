@@ -1,0 +1,114 @@
+﻿<Page x:Class="WpfApp1.Pages.ServicesListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicesListPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height ="343*"/>
+            <RowDefinition Height="44*"/>
+           
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <ComboBox x:Name="CountCb">
+                <!--сколько сток отображается в списке на одной странице-->
+                <ComboBoxItem>все</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+
+            </ComboBox>
+            <TextBlock Margin="2 5"> Сортирвока</TextBlock>
+            <ComboBox Width="150" x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged">
+                <ComboBoxItem Tag="1">По возрастанию</ComboBoxItem>
+                <ComboBoxItem Tag="2">По убыванию</ComboBoxItem>
+                <ComboBoxItem Tag="3">По умолчанию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Margin="5"> Размер скидки</TextBlock>
+            <ComboBox  Width="150" Height="30" x:Name="DiscountSortCb" SelectionChanged="DiscountSortCb_SelectionChanged">
+                <ComboBoxItem Tag ="1" >Все</ComboBoxItem>
+                <ComboBoxItem Tag ="2">от 0 до 5%</ComboBoxItem>
+                <ComboBoxItem Tag ="3">от 5% до 15%</ComboBoxItem>
+                <ComboBoxItem Tag ="4">от 15% до 30%</ComboBoxItem>
+                <ComboBoxItem Tag ="5">от 30% до 70%</ComboBoxItem>
+                <ComboBoxItem Tag ="6">от 70% до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Margin="5" >Название или описание</TextBlock>
+            <TextBox Height="30" Width="170" x:Name="NameDisSearch" TextChanged="NameDisSearch_TextChanged" ></TextBox>
+        </StackPanel>
+
+        <ListView Grid.Row="1" x:Name="ServiceList" BorderBrush="Black" d:ItemsSource="{d:SampleData ItemCount=5}" >
+            <!--Changed">-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="5" Background="{Binding ColorDis}" BorderBrush="LightBlue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="700"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding MainImagePath}" Height="100"></Image>
+                            <TextBlock Grid.Column="1" Text="{Binding Title}"></TextBlock>
+                            <!--<TextBlock  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{} {0:0F} рублей за {1} скидка {2}%">
+                                        <Binding Path=" Cost"></Binding>
+                                        <Binding Path="DurationInSeconds"></Binding>
+                                        <Binding Path="Discount"></Binding>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>-->
+                            <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Cost, StringFormat=F}" Visibility="{Binding DiscountVisibility }" TextDecorations="Strikethrough"></TextBlock>
+                                    <TextBlock Text="{Binding CostDuratoin}"></TextBlock>
+                                </StackPanel>
+                                <TextBlock Text="{Binding StrDiscount}" HorizontalAlignment="Left"></TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                <Button Height="30" x:Name="CreatBtn" Margin="5" Click="CreatBtn_Click" Visibility="{Binding BtnVisible}">Редактировать</Button>
+                                <Button Height="30" x:Name="DeleteBtn" Margin="5" Click="DeleteBtn_Click" Visibility="{Binding BtnVisible}">Удалить</Button>
+                            </StackPanel>
+
+                            <ListView BorderBrush="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ClientService}" Grid.Column="0" Grid.Row="3">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Client.FirstName}" Background="LightBlue"></TextBlock>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="2" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5 0">
+                <Button Content="&lt;" x:Name="LeftBtn" Click="LeftBtn_Click"></Button>
+                <Button x:Name="AddSetviseBtn" Style="{Binding MyButton}" Width="100" Click="AddSetviseBtn_Click" Content="Добавить"/>
+                <TextBlock x:Name="FondCount" Margin="5"></TextBlock>
+                <TextBlock x:Name="GeneralCount" Margin="5"></TextBlock>
+                <Button Content="&gt;" x:Name="RightBtn" Click="RightBtn_Click" ></Button>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Page>

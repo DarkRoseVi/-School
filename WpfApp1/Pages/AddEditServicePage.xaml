@@ -1,0 +1,48 @@
+﻿<Page x:Class="WpfApp1.Pages.AddEditServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditServicePage">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock>Название</TextBlock>
+                <TextBox Text="{Binding Title}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock>Цена</TextBlock>
+                <TextBox Text="{Binding Cost}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Время выполнения</TextBlock>
+                    <TextBox Text="{Binding DurationInSeconds}"></TextBox>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Описание</TextBlock>
+                    <TextBox Text="{Binding Description}"></TextBox>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Скидка</TextBlock>
+                    <TextBox Text="{Binding Discount}" ></TextBox>
+                </StackPanel>
+            <Button Style="{StaticResource MyButton}" x:Name="SaveBtn" Click="SaveBtn_Click_1"  >Сохранить </Button>
+        
+        
+        
+        
+        
+        </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" >
+                <Image Width="200" Height="200" Source="{Binding MainImagePath}" Margin="5"></Image>
+                <Button Style="{StaticResource MyButton}" HorizontalAlignment="Center" x:Name="SaveImgBth" Click="SaveImgBth_Click"  >Добавить изображение</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>

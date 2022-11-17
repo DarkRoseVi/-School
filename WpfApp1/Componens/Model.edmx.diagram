@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="308fa2438fad4dd98112988d2527be97" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="School_ViModel.ClientService" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.DocumentByService" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.Gender" Width="1.5" PointX="1.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.Manufacturer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.Product" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.ProductPhoto" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.ProductSale" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.ServicePhoto" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="School_ViModel.Tag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <AssociationConnector Association="School_ViModel.FK_DocumentByService_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="School_ViModel.FK_ProductSale_ClientService" ManuallyRouted="false" />
+        <AssociationConnector Association="School_ViModel.FK_Product_Manufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="School_ViModel.FK_ProductPhoto_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="School_ViModel.FK_ProductSale_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="School_ViModel.AttachedProduct" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="School_ViModel.Role" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="School_ViModel.User" Width="1.5" PointX="6" PointY="13.75" />
+        <AssociationConnector Association="School_ViModel.FK_User_Role" />
+        <EntityTypeShape EntityType="School_ViModel.Client" Width="1.5" PointX="3.75" PointY="22.375" />
+        <AssociationConnector Association="School_ViModel.FK_Client_Gender" />
+        <AssociationConnector Association="School_ViModel.FK_ClientService_Client" />
+        <AssociationConnector Association="School_ViModel.FK_User_Client" />
+        <AssociationConnector Association="School_ViModel.TagOfClient" />
+        <EntityTypeShape EntityType="School_ViModel.Service" Width="1.5" PointX="0.75" PointY="15.75" />
+        <AssociationConnector Association="School_ViModel.FK_ClientService_Service" />
+        <AssociationConnector Association="School_ViModel.FK_ServicePhoto_Service" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
